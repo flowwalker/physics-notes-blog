@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title description">
+  <title id="title">Dawn theme placeholder avatar</title>
+  <desc id="description">A minimal sunrise above a curved horizon</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#334155"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="240" rx="120" fill="url(#sky)"/>
+  <circle cx="120" cy="128" r="43" fill="#fff7ed"/>
+  <path d="M24 162c31-19 63-28 96-28s65 9 96 28v78H24z" fill="#1e293b"/>
+</svg>
