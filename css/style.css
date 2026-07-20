@@ -5,6 +5,8 @@
 
 @import url('https://npm.elemecdn.com/lxgw-wenkai-screen-webfont@1.1.0/style.css');
 
+html { zoom: 1.2; }
+
 /* --- CSS Custom Properties (Light Mode) -------------------- */
 :root {
   --color-bg: #FAFAFA;
