@@ -25,8 +25,17 @@
 <script>
 (function() {
   var saved = localStorage.getItem('dawn-theme');
-  if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  if (saved === 'dark') {
     document.documentElement.classList.add('dark');
+  } else if (saved === 'light') {
+    // keep light
+  } else {
+    var isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (!isDark && !window.matchMedia('(prefers-color-scheme: light)').matches) {
+      var h = new Date().getHours();
+      isDark = h >= 18 || h < 6;
+    }
+    if (isDark) document.documentElement.classList.add('dark');
   }
 })();
 </script>
@@ -293,8 +302,23 @@
     btn.setAttribute('aria-label', getLabel(dark));
   }
 
-  var saved = localStorage.getItem(STORAGE_KEY);
-  if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  function isTimeDark() {
+    var h = new Date().getHours();
+    return h >= 18 || h < 6;
+  }
+
+  function computeIsDark() {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === 'dark') return true;
+    if (saved === 'light') return false;
+    var mqDark = window.matchMedia('(prefers-color-scheme: dark)');
+    var mqLight = window.matchMedia('(prefers-color-scheme: light)');
+    if (mqDark.matches) return true;
+    if (mqLight.matches) return false;
+    return isTimeDark();
+  }
+
+  if (computeIsDark()) {
     html.classList.add('dark');
     updateUI(true);
   } else {
@@ -333,7 +357,7 @@
 
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
     if (localStorage.getItem(STORAGE_KEY) === null) {
-      setTheme(e.matches);
+      setTheme(computeIsDark());
     }
   });
 })();
@@ -359,5 +383,87 @@
 
 
 
+  <canvas id="universe"></canvas>
+  <script>
+  (function(){
+    var canvas = document.getElementById('universe');
+    if (!canvas) return;
+    var ctx, n, e, i, particles = [];
+    var t = 0.05, notFirst = true;
+    var colorA = '180,184,240', colorB = '226,225,142', colorC = '226,225,224';
+
+    function resize() {
+      n = window.innerWidth; e = window.innerHeight;
+      i = 0.216 * n; canvas.width = n; canvas.height = e;
+    }
+    function render() {
+      if (!document.documentElement.classList.contains('dark')) { requestAnimationFrame(render); return; }
+      ctx.clearRect(0, 0, n, e);
+      for (var j = 0; j < particles.length; j++) {
+        var p = particles[j];
+        p.move(); p.fadeIn(); p.fadeOut(); p.draw();
+      }
+      requestAnimationFrame(render);
+    }
+    function rand(a, b) { return Math.random() * (b - a) + a; }
+    function chance(pct) { return Math.floor(1000 * Math.random()) + 1 < 10 * pct; }
+
+    function Particle() {
+      this.reset = function() {
+        this.giant = chance(3);
+        this.comet = !this.giant && !notFirst && chance(10);
+        this.x = rand(0, n - 10); this.y = rand(0, e);
+        this.r = rand(1.1, 2.6);
+        this.dx = rand(t, 6*t) + (this.comet ? 1 : 0) * t * rand(50, 120) + 2*t;
+        this.dy = -rand(t, 6*t) - (this.comet ? 1 : 0) * t * rand(50, 120);
+        this.fadingOut = null; this.fadingIn = true;
+        this.opacity = 0;
+        this.opacityTresh = rand(0.2, 1 - 0.4 * (this.comet ? 1 : 0));
+        this.do = rand(0.0005, 0.002) + 0.001 * (this.comet ? 1 : 0);
+      };
+      this.fadeIn = function() {
+        if (!this.fadingIn) return;
+        this.fadingIn = !(this.opacity > this.opacityTresh);
+        this.opacity += this.do;
+      };
+      this.fadeOut = function() {
+        if (!this.fadingOut) return;
+        this.fadingOut = !(this.opacity < 0);
+        this.opacity -= this.do / 2;
+        if (this.x > n || this.y < 0) { this.fadingOut = false; this.reset(); }
+      };
+      this.draw = function() {
+        ctx.beginPath();
+        if (this.giant) {
+          ctx.fillStyle = 'rgba(' + colorA + ',' + this.opacity + ')';
+          ctx.arc(this.x, this.y, 2, 0, 2 * Math.PI, false);
+        } else if (this.comet) {
+          ctx.fillStyle = 'rgba(' + colorC + ',' + this.opacity + ')';
+          ctx.arc(this.x, this.y, 1.5, 0, 2 * Math.PI, false);
+          for (var k = 0; k < 30; k++) {
+            ctx.fillStyle = 'rgba(' + colorC + ',' + (this.opacity - this.opacity / 20 * k) + ')';
+            ctx.fillRect(this.x - this.dx / 4 * k, this.y - this.dy / 4 * k - 2, 2, 2);
+          }
+        } else {
+          ctx.fillStyle = 'rgba(' + colorB + ',' + this.opacity + ')';
+          ctx.fillRect(this.x, this.y, this.r, this.r);
+        }
+        ctx.closePath(); ctx.fill();
+      };
+      this.move = function() {
+        this.x += this.dx; this.y += this.dy;
+        if (!this.fadingOut && (this.x > n - n / 4 || this.y < 0)) this.fadingOut = true;
+        if (this.fadingOut === false) this.reset();
+      };
+      setTimeout(function() { notFirst = false; }, 50);
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+    ctx = canvas.getContext('2d');
+    for (var j = 0; j < i; j++) { particles.push(new Particle()); particles[j].reset(); }
+    render();
+  })();
+  </script>
 </body>
 </html>
