@@ -3,6 +3,8 @@
    Swiss Modernism + Editorial warmth for long-form reading
    ============================================================ */
 
+@import url('https://npm.elemecdn.com/lxgw-wenkai-screen-webfont@1.1.0/style.css');
+
 /* --- CSS Custom Properties (Light Mode) -------------------- */
 :root {
   --color-bg: #FAFAFA;
@@ -43,8 +45,8 @@
   --color-scrollbar-thumb: #D4D4D8;
   --color-scrollbar-track: transparent;
 
-  --font-display: 'Playfair Display', 'Noto Serif SC', 'Times New Roman', serif;
-  --font-body: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: "LXGW WenKai", "霞鹜文楷", 'Playfair Display', 'Noto Serif SC', 'Times New Roman', serif;
+  --font-body: "LXGW WenKai", "霞鹜文楷", 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
 
   --sidebar-width: 320px;
