@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <author>
-    <name>flowwalker</name>
+    <name>flowwalker之格物Blog</name>
   </author>
   <generator uri="https://hexo.io/">Hexo</generator>
   <id>https://flowwalker.github.io/physics-notes-blog/</id>
   <link href="https://flowwalker.github.io/physics-notes-blog/" rel="alternate"/>
   <link href="https://flowwalker.github.io/physics-notes-blog/atom.xml" rel="self"/>
-  <rights>All rights reserved 2026, flowwalker</rights>
+  <rights>All rights reserved 2026, flowwalker之格物Blog</rights>
   <subtitle>天地一蜉蝣, 可观宙宇阔? 可叹天高地迥</subtitle>
   <title>物理笔记</title>
   <updated>2026-07-20T10:18:29.835Z</updated>
   <entry>
     <author>
-      <name>flowwalker</name>
+      <name>flowwalker之格物Blog</name>
     </author>
     <category term="站务" scheme="https://flowwalker.github.io/physics-notes-blog/categories/%E7%AB%99%E5%8A%A1/"/>
     <category term="开篇" scheme="https://flowwalker.github.io/physics-notes-blog/tags/%E5%BC%80%E7%AF%87/"/>
