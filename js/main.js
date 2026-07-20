@@ -64,9 +64,17 @@
   var navLinks = sidebar.querySelectorAll('.sidebar-nav-item');
   navLinks.forEach(function(link) {
     var href = link.getAttribute('href');
-    if (href === '/' && currentPath === '/') {
-      link.classList.add('active');
-    } else if (href !== '/' && currentPath.startsWith(href)) {
+    var isHome = link.getAttribute('data-home') === 'true';
+    // Normalize /index.html to / for exact comparison
+    var currentPathNorm = currentPath.replace(/\/index\.html$/, '/');
+    var hrefNorm = href.replace(/\/index\.html$/, '/');
+
+    if (isHome) {
+      // Home link only highlights on exact home path
+      if (currentPathNorm === hrefNorm) {
+        link.classList.add('active');
+      }
+    } else if (href !== '/' && (currentPathNorm === hrefNorm || currentPath.startsWith(href))) {
       link.classList.add('active');
     }
   });
