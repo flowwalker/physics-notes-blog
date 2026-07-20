@@ -2071,3 +2071,37 @@ html.dark .dark-toggle-float .icon-moon { display: none; }
     animation-delay: 0ms !important;
   }
 }
+
+/* ===== 比邻链接卡片 ===== */
+.link-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 1.5em;
+}
+.link-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 22px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.link-card:hover {
+  border-color: #4a90d9;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(74, 144, 217, 0.12);
+}
+.link-card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+.link-card-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-light, #888);
+  line-height: 1.5;
+}
