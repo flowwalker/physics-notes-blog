@@ -2085,6 +2085,7 @@ html.dark .dark-toggle-float .icon-moon { display: none; }
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
+  overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   border: 2px solid var(--color-border);
 }
