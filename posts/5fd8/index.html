@@ -46,6 +46,22 @@
 
 <meta name="generator" content="Hexo 8.1.2"></head>
 <body>
+  <div id="loading-box" onclick="document.getElementById('loading-box').classList.add('loaded')">
+    <div class="loading-bg">
+      <img class="loading-img" alt="加载中" src="/img/avar.png">
+      <div class="loading-image-dot"></div>
+    </div>
+  </div>
+  <script>
+  (function(){
+    function endLoading() {
+      var box = document.getElementById('loading-box');
+      if (box) box.classList.add('loaded');
+    }
+    window.addEventListener('load', endLoading);
+    setTimeout(endLoading, 2500);
+  })();
+  </script>
   <div class="site-wrapper">
     <aside class="site-sidebar" id="sidebar">
   <button class="sidebar-collapse-btn" id="sidebar-collapse-btn" title="折叠侧边栏" aria-label="折叠侧边栏">
@@ -159,7 +175,7 @@
             
             <i class="fa fa-reply"></i>
           </span>
-          <span class="nav-label">归返本山</span>
+          <span class="nav-label">归返本山→主博客</span>
         </a>
       
     </nav>
@@ -212,7 +228,7 @@
     
       <a href="/physics-notes-blog/links/" class="nav-item animate-entry">四处仙山</a>
     
-      <a href="https://flowwalker.top" class="nav-item animate-entry">归返本山</a>
+      <a href="https://flowwalker.top" class="nav-item animate-entry">归返本山→主博客</a>
     
   </nav>
 </header>
