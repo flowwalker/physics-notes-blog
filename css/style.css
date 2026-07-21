@@ -1500,27 +1500,6 @@ html.dark .site-header {
   gap: 16px;
 }
 
-.link-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 20px 24px;
-  background: var(--color-card);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  transition: all var(--transition-normal);
-}
-.link-card:hover {
-  border-color: var(--color-gold);
-  box-shadow: 0 4px 16px var(--color-shadow-hover);
-  transform: translateY(-2px);
-}
-
-.link-info {
-  flex: 1;
-  min-width: 0;
-}
 
 .link-name {
   font-family: var(--font-display);
@@ -2085,29 +2064,47 @@ html.dark .dark-toggle-float .icon-moon { display: none; }
 }
 .link-card {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 18px 22px;
-  border: 1.5px solid var(--color-border);
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
   text-decoration: none;
   transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 .link-card:hover {
-  border-color: #4a90d9;
+  border-color: var(--color-gold);
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(74, 144, 217, 0.12);
 }
+.link-card-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 2px solid var(--color-border);
+}
+.link-card-text {
+  flex: 1;
+  min-width: 0;
+}
 .link-card-title {
+  display: block;
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--color-text);
   line-height: 1.4;
 }
 .link-card-desc {
+  display: block;
   font-size: 0.9rem;
   color: var(--color-text-light, #888);
   line-height: 1.5;
+  margin-top: 2px;
 }
 
 /* --- 暗色模式粒子背景 --- */
