@@ -47,6 +47,7 @@
 <meta name="generator" content="Hexo 8.1.2"></head>
 <body>
   <div id="loading-box" onclick="document.getElementById('loading-box').classList.add('loaded')">
+    <div class="loading-bar"></div>
     <div class="loading-bg">
       <img class="loading-img" alt="加载中" src="/physics-notes-blog/img/avar.png">
       <div class="loading-image-dot"></div>
@@ -54,6 +55,12 @@
   </div>
   <script>
   (function(){
+    if (sessionStorage.getItem('preloaderShown')) {
+      var box = document.getElementById('loading-box');
+      if (box) box.classList.add('loaded');
+      return;
+    }
+    sessionStorage.setItem('preloaderShown', 'true');
     var start = Date.now(), minShow = 1500;
     function endLoading() {
       var remain = minShow - (Date.now() - start);
