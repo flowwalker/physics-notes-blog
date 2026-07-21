@@ -10,7 +10,7 @@
   <rights>All rights reserved 2026, flowwalker之格物Blog</rights>
   <subtitle>天地一蜉蝣, 可观宙宇阔? 可叹天高地迥</subtitle>
   <title>物理博客</title>
-  <updated>2026-07-21T02:43:02.483Z</updated>
+  <updated>2026-07-21T03:14:07.772Z</updated>
   <entry>
     <author>
       <name>flowwalker之格物Blog</name>
@@ -18,13 +18,13 @@
     <category term="站务" scheme="https://flowwalker.github.io/physics-notes-blog/categories/%E7%AB%99%E5%8A%A1/"/>
     <category term="开篇" scheme="https://flowwalker.github.io/physics-notes-blog/tags/%E5%BC%80%E7%AF%87/"/>
     <content>
-      <![CDATA[<p>这里是我的物理课程学习笔记博客，用来整理物理课程的笔记、推导与错题。</p><p>计划覆盖的内容：</p><ul><li>大学物理（力学、电磁学、热学、光学）</li><li>理论力学</li><li>其他物理相关课程</li></ul><p>公式用 MathJax 渲染：</p><p>$$\oint_S \vec{E} \cdot d\vec{S} = \frac{Q_{enc}}{\varepsilon_0}$$</p><p>主博客请访问 <a href="https://flowwalker.top/">flowwalker.top</a>。</p>]]>
+      <![CDATA[<p>这里是记录我物理相关思考的博客</p><p>公式用 MathJax 渲染：</p><p>$$\oint_S \vec{E} \cdot d\vec{S} = \frac{Q_{enc}}{\varepsilon_0}$$</p><p>在这个时代的潮流中，虽然手搓已经失去了效率一说，权威也被解构，那么——</p><p>似乎一切的自我陶醉都是一种自作多情，但</p><p>又何妨呢？</p><p>心中拥有美好，荒岛也能耕种出繁花～</p><p>孤芳自赏者，毋为世事倾侧。</p><p>主博客请访问 <a href="https://flowwalker.top/">flowwalker.top</a>。</p>]]>
     </content>
     <id>https://flowwalker.github.io/physics-notes-blog/posts/5fd8/</id>
     <link href="https://flowwalker.github.io/physics-notes-blog/posts/5fd8/"/>
     <published>2026-07-19T15:30:00.000Z</published>
     <summary>仰观宇宙之大，俯察品类之盛。所以游目骋怀，格物致知。</summary>
     <title>物理博客开张</title>
-    <updated>2026-07-21T02:43:02.483Z</updated>
+    <updated>2026-07-21T03:14:07.772Z</updated>
   </entry>
 </feed>
